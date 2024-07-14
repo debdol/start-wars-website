@@ -31,7 +31,7 @@ function FavouritePage() {
       align="center"
       justify="center"
     >
-      {favItems.length > 0 ?
+      {favItems?.length > 0 ?
         favItems.map((item, index) => (
           <Card
             key={item.name}
@@ -42,7 +42,7 @@ function FavouritePage() {
             mt={4}
             mb={4}
             w={{ base: '100%', sm: '95%', md: '90%', xl: '70%' }}
-            h={{ base: "100%", md: "400px" }}
+            h={{ base: "100%", md: "350px" }}
             boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px"
           >
             <Image
@@ -52,7 +52,7 @@ function FavouritePage() {
               alt='Carecter'
             />
             <CardBody w={{ base: "100%", md: "100%" }}>
-              <Heading size='md' color="Black" textAlign="left" mb={"2rem"}>{item.name}</Heading>
+              <Heading size='md' color="Black" textAlign="left" mb={"1rem"}>{item.name}</Heading>
               <Flex direction="row">
                 <Box mr={4}>
                   <Text fontSize="lg" color="Black">Eye Color:</Text>
@@ -95,7 +95,7 @@ function FavouritePage() {
                 </Box>
                 <Text fontSize="lg" color="Black">{item.skin_color}</Text>
               </Flex>
-              <CardFooter textAlign="left" p={0} mt={"2rem"}>
+              <CardFooter textAlign="left" p={0} mt={"1rem"}>
                 <Button variant='solid' colorScheme='red' onClick={() => removeFavourite(item)}>
                   Remove Favourite
                 </Button>

@@ -19,13 +19,13 @@ function NavBar() {
             top="0"
             zIndex={1000}
             width='100%'
-            height='5rem'
+            height='4rem'
             textAlign='center'
         >
             <Flex h={16} alignItems={'center'} justifyContent={'space-between'} height={"100%"}>
                 <Box
                     color={"#DBAFA0"}
-                    fontSize="4xl"
+                    fontSize="2xl"
                     fontWeight="bold"
                 >StarWars</Box>
                 <Flex alignItems={'center'}>

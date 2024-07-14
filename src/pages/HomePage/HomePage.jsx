@@ -64,7 +64,7 @@ function HomePage() {
     }, []);
     return (
         <Box position="relative" minH="100vh">
-            {cardData.length > 0 ?
+            {cardData?.length > 0 ?
                 <SimpleGrid columns={[1, 2, 3, 4, 5]} spacing={8} p={5}>
                     {cardData.map((item, index) => {
                         return (
@@ -137,7 +137,7 @@ function HomePage() {
             <Flex
                 justify="space-between"
                 position="absolute"
-                bottom="20"
+                bottom="0"
                 width="100%"
             >
                 <Button
