@@ -18,15 +18,15 @@ function DetailsPage() {
     "The Last Jedi": "https://starwars-visualguide.com/assets/img/films/8.jpg",
     "The Rise of Skywalker": "https://starwars-visualguide.com/assets/img/films/9.jpg",
   };
-  const { id } = useParams();
-  const cardId = id || false;
+  const param = useParams();
+  const id = param?.id || false;
   const bg = useColorModeValue('gray.100', 'gray.900');
   const [details, setDetails] = useState(null);
   const [filmsEndPoint, setFilmsEndPoint] = useState([]);
   const [films, setFilms] = useState([]);
 
   useEffect(() => {
-    axios.get(`https://swapi.dev/api/people/${cardId}/`)
+    axios.get(`https://swapi.dev/api/people/${id}/`)
       .then((response) => {
         setFilmsEndPoint(response.data.films);
         setDetails(response.data);
@@ -34,7 +34,7 @@ function DetailsPage() {
       .catch((error) => {
         console.log("Error in fetching character details: ", error)
       })
-  }, [cardId])
+  }, [id])
 
   useEffect(() => {
     if (filmsEndPoint.length > 0) {
