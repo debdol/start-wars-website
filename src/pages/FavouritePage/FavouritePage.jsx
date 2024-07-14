@@ -1,6 +1,5 @@
 'use client'
 import React, { useEffect, useState } from 'react'
-import './FavouritePage.scss'
 import { Card, Box, CardBody, CardFooter, Flex, Image, Stack, Heading, Text, Button, Spinner } from '@chakra-ui/react'
 
 function FavouritePage() {
@@ -22,7 +21,6 @@ function FavouritePage() {
   return (
     <Box
       p={8}
-      // bgImage='url("https://i.gifer.com/DVx4.gif")'
       bgSize="cover"
       bgPosition="center"
       minH="100vh"

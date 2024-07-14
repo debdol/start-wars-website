@@ -1,43 +1,49 @@
 'use client'
 import React from 'react';
-import { Box, Flex, Link, Button, useColorModeValue, Tooltip } from '@chakra-ui/react';
-import { FaHeart } from "react-icons/fa";
-import { useRouter } from 'next/navigation';
+import { Box, Flex, Link, Tooltip } from '@chakra-ui/react';
+import { FaHeart, FaHome } from "react-icons/fa";
+import { GiStarsStack } from "react-icons/gi";
 
 function NavBar() {
-    const router = useRouter();
-
-    const handleNavigation = () => {
-        router.push('/favourite');
-    };
 
     return (
         <Box
-            bg={'#49243E'}
+            bg={'#000000'}
             px={4}
             position="sticky"
             top="0"
             zIndex={1000}
             width='100%'
-            height='4rem'
+            height='4.5rem'
+            display={"flex"}
             textAlign='center'
+            alignItems={"center"}
+            justifyContent={"center"}
         >
-            <Flex h={16} alignItems={'center'} justifyContent={'space-between'} height={"100%"}>
+            <Flex alignItems={'center'} justifyContent={'space-between'} height={"100%"} width={"90%"}>
                 <Box
-                    color={"#DBAFA0"}
+                    color='#FFC94A'
                     fontSize="2xl"
                     fontWeight="bold"
-                >StarWars</Box>
-                <Flex alignItems={'center'}>
-                    <Tooltip label={'Go to Home'}>
-                        <Link px={2} py={1} rounded={'md'} _hover={{ textDecoration: 'none', bg: useColorModeValue('gray.200', 'gray.700'), color: "Black" }} href={'/'} color={"#DBAFA0"}>
-                            Home
+                    _hover={{ borderRadius: "none", color: "#ffffff", transform: "scale(1.1)", transition: "0.3s" }}
+                    transition={"0.3s"}
+                    cursor={"pointer"}
+                >
+                    <Link href={'/'} display={"flex"} alignItems={"center"} gap={"8px"} fontSize={"2rem"} fontFamily={"fantasy"}>
+                        <GiStarsStack fontSize={'3rem'} />
+                        StarWars
+                    </Link>
+                </Box>
+                <Flex alignItems={'center'} gap={"24px"}>
+                    <Tooltip label={'Home'}>
+                        <Link px={2} py={1} rounded={'md'} _hover={{ borderRadius: "none", color: "#FFC94A", transform: "scale(1.1)", transition: "0.3s" }} href={'/'} color={"#ffffff"} transition={"0.3s"}>
+                            <FaHome fontSize={'2rem'} />
                         </Link>
                     </Tooltip>
-                    <Tooltip label={'Go to Favourite'}>
-                        <Button onClick={handleNavigation} ml={4}>
-                            <FaHeart color='red' />
-                        </Button>
+                    <Tooltip label={'Favourites'}>
+                        <Link px={2} py={1} rounded={'md'} _hover={{ borderRadius: "none", color: "#FFC94A", transform: "scale(1.1)", transition: "0.3s" }} href={'/favourite'} color={"#ffffff"} transition={"0.3s"}>
+                            <FaHeart fontSize={'2rem'} />
+                        </Link>
                     </Tooltip>
                 </Flex>
             </Flex>
