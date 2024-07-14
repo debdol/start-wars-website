@@ -20,7 +20,7 @@ function NavBar() {
             alignItems={"center"}
             justifyContent={"center"}
         >
-            <Flex alignItems={'center'} justifyContent={'space-between'} height={"100%"} width={"90%"}>
+            <Flex alignItems={'center'} justifyContent={'space-between'} height={"100%"} w={{ base: "100%", md: "90%" }}>
                 <Box
                     color='#FFC94A'
                     fontSize="2xl"
