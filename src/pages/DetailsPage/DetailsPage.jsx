@@ -18,7 +18,7 @@ function DetailsPage() {
     "The Last Jedi": "https://starwars-visualguide.com/assets/img/films/8.jpg",
     "The Rise of Skywalker": "https://starwars-visualguide.com/assets/img/films/9.jpg",
   };
-  const { id } = useParams();
+  const { id } = useParams() || false;
   const bg = useColorModeValue('gray.100', 'gray.900');
   const [details, setDetails] = useState(null);
   const [filmsEndPoint, setFilmsEndPoint] = useState([]);
