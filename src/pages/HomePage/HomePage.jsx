@@ -13,6 +13,7 @@ function HomePage() {
     const [cardData, setCardData] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [myFavourite, setMyFavourite] = useState([]);
+    // console.log("myFavourite:", myFavourite);
 
     const getCarecterData = () => {
         setCardData([]);
@@ -51,17 +52,27 @@ function HomePage() {
         getFavourite();
     };
 
-    function getFavourite() {
+    const getFavourite = () => {
         const data = JSON.parse(localStorage.getItem('favourite_items'));
         if (data) {
             const favNames = data.map((item) => item.name);
             setMyFavourite(favNames);
         }
-    }
+    };
 
     useEffect(() => {
         getFavourite();
     }, []);
+
+    const removeFavourite = (item) => {
+        let myStore = JSON.parse(localStorage.getItem('favourite_items'));
+        let newFav = myStore.filter((favItems) => favItems.name !== item.name);
+        console.log("newFav:", newFav);
+        setMyFavourite(newFav);
+        localStorage.setItem('favourite_items', JSON.stringify(newFav));
+        // getFavourite();  
+    };
+
     return (
         <Box position="relative" minH="100vh">
             {cardData?.length > 0 ?
@@ -98,7 +109,7 @@ function HomePage() {
                                     </Tooltip>
                                     {
                                         myFavourite.includes(item.name) ? (
-                                            <FaHeart color='red' onClick={() => router.push('/favourite')} fontSize={"1.5rem"} />
+                                            <FaHeart color='red' onClick={() => removeFavourite(item)} fontSize={"1.5rem"} />
                                         ) : (
                                             <FaHeart color='#FFC94A' onClick={() => addToFavourite(item)} fontSize={"1.5rem"} />
                                         )
@@ -126,8 +137,8 @@ function HomePage() {
             >
                 <Button
                     leftIcon={<ArrowBackIcon />}
-                    colorScheme='red'
-                    variant={currentPage === 1 ? 'outline' : 'solid'}
+                    colorScheme='yellow'
+                    variant={currentPage > 1 ? 'solid' : 'outline'}
                     isDisabled={currentPage === 1}
                     onClick={() => {
                         if (currentPage > 1) {
@@ -147,8 +158,8 @@ function HomePage() {
                 </Button>
                 <Button
                     rightIcon={<ArrowForwardIcon />}
-                    colorScheme='red'
-                    variant={currentPage === 1 ? 'solid' : 'outline'}
+                    colorScheme='yellow'
+                    variant={currentPage >= 1 && currentPage != 9 ? 'solid' : 'outline'}
                     isDisabled={currentPage === 9}
                     onClick={() => setCurrentPage((prev) => prev + 1)}
                 >
