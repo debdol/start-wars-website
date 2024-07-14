@@ -13,14 +13,12 @@ function HomePage() {
     const [cardData, setCardData] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [myFavourite, setMyFavourite] = useState([]);
-    // console.log("myFavourite:", myFavourite);
 
     const getCarecterData = () => {
         setCardData([]);
         axios.get(`https://swapi.dev/api/people/?page=${currentPage}`)
             .then((response) => {
                 setCardData(response.data.results);
-                // console.log('response.data.results:', response.data.results);
             })
             .catch((error) => {
                 toast({
@@ -67,10 +65,9 @@ function HomePage() {
     const removeFavourite = (item) => {
         let myStore = JSON.parse(localStorage.getItem('favourite_items'));
         let newFav = myStore.filter((favItems) => favItems.name !== item.name);
-        console.log("newFav:", newFav);
-        setMyFavourite(newFav);
+        let newFavName = newFav.map((item) => item.name)
+        setMyFavourite(newFavName);
         localStorage.setItem('favourite_items', JSON.stringify(newFav));
-        // getFavourite();  
     };
 
     return (

@@ -126,71 +126,6 @@ function DetailsPage() {
 
           <Divider my={6} borderColor="white.300" />
           <Heading as="h3" size="lg" mb={4} color="#49243E">Film Releases:</Heading>
-          {/* <Flex
-            justify="center"
-          >
-            <Box
-              overflowX="auto "
-              whiteSpace="nowrap"
-              width="100%"
-              padding="4"
-            >
-              <HStack
-                spacing={'2%'}
-                width="100%"
-                justifyContent={"center"}
-              >
-                {films.length > 0 ?
-                  films.map((item, index) => (
-                    <Box
-                      key={index}
-                      w={{ base: "100%", sm: "100%", md: "43%", xl: "23%" }}
-                      h="400px"
-                      p={4}
-                      borderWidth="1px"
-                      borderRadius="lg"
-                      boxShadow="md"
-                      textAlign="center"
-                      bg="rgba(255, 255, 255, 0.8)"
-                      color="black"
-                      display="flex"
-                      flexDirection="column"
-                      justifyContent="space-between"
-                      transition="transform 0.2s"
-                      _hover={{ transform: 'scale(1.06)' }}>
-                      <Image
-                        src={moviePosters[item.data.title]}
-                        alt={'title'}
-                        boxSize="150px"
-                        objectFit="cover"
-                        borderRadius='full'
-                        mb={4}
-                        alignSelf="center"
-                      />
-                      <Text
-                        fontWeight="bold"
-                        fontSize="lg"
-                        mb={2}
-                      >{item.data.title}</Text>
-                      <Text
-                        fontSize="sm"
-                        whiteSpace="wrap"
-                        overflow="hidden"
-                      >Procducer: {item.data.producer}</Text>
-                      <Text
-                        fontSize="sm"
-                        whiteSpace="wrap"
-                        overflow="hidden"
-                      >Director:{item.data.director}</Text>
-                      <Text fontSize="sm">Release Date: {item.data.release_date}</Text>
-                    </Box>
-                  )) :
-                  <Flex justify="center" align="center" h="80vh">
-                    <Spinner size="xl" color="Black" />
-                  </Flex>}
-              </HStack>
-            </Box>
-          </Flex > */}
 
           <Flex
             justify="center"
@@ -207,13 +142,11 @@ function DetailsPage() {
                 height="450px"
                 justifyContent={"flex-start"}
                 sx={{
-                  /* Hide scrollbar for Chrome, Safari, and Opera */
                   '&::-webkit-scrollbar': {
                     display: 'none',
                   },
-                  /* Hide scrollbar for IE, Edge, and Firefox */
-                  msOverflowStyle: 'none',  // IE and Edge
-                  scrollbarWidth: 'none',   // Firefox
+                  msOverflowStyle: 'none',
+                  scrollbarWidth: 'none',
                 }}
               >
                 {films.length > 0 ?
