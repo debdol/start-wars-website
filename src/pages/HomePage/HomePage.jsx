@@ -23,12 +23,12 @@ function HomePage() {
             })
             .catch((error) => {
                 toast({
-                    title: error.response.data.detail,
-                    description: ' Go to previous page',
-                    status: "error",
-                    duration: 2000,
-                    isClosable: true,
-                });
+                    title: "Can't get data",
+                    description: `Are you connected to the internet?`,
+                    status: "warning",
+                    duration: 5000,
+                    isClosable: false,
+                })
 
             })
     }
@@ -83,6 +83,7 @@ function HomePage() {
                                 _hover={{ transform: 'scale(1.1)', cursor: 'pointer' }}>
                                 <Tooltip label={'Click to See Details'}>
                                     <Image
+                                        onClick={() => handleNavigation(item)}
                                         alt='Character'
                                         maxW={{ base: '100%', sm: '200px' }}
                                         src={`https://starwars-visualguide.com/assets/img/characters/${item.url.match(/\d+/)[0]}.jpg`}
@@ -133,12 +134,10 @@ function HomePage() {
                 <Flex justify="center" align="center" h="80vh">
                     <Spinner size="xl" color="red.500" />
                 </Flex>}
-            <br />
-            <br />
             <Flex
                 justify="space-between"
                 position="absolute"
-                bottom="0"
+                bottom="20"
                 width="100%"
             >
                 <Button
