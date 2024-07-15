@@ -2,8 +2,6 @@ import { Inter } from "next/font/google";
 import Head from 'next/head';
 import "./globals.css";
 import GlobalDatas from "../globalDatas/globalDatas";
-import { ChakraUi } from "../chakraUi/ChakraUi";
-import NavBar from "../container/navBar/NavBar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,10 +20,6 @@ export default function RootLayout({ children }) {
         <GlobalDatas>
           {children}
         </GlobalDatas>
-        {/* <ChakraUi>
-          <NavBar />
-          {children}
-        </ChakraUi> */}
       </body>
     </html>
   );
