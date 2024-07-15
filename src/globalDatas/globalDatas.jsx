@@ -6,7 +6,7 @@ import NavBar from "../container/navBar/NavBar";
 export const GlobalContext = createContext();
 
 const GlobalDatas = ({ children }) => {
-    const [favourites, setFavourites] = useState() || 0;
+    const [favourites, setFavourites] = useState(0);
 
     useEffect(() => {
         setFavourites(JSON.parse(localStorage.getItem('favourite_items'))?.length)
