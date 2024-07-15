@@ -3,7 +3,10 @@ import React, { useEffect } from 'react'
 import { createContext, useState } from "react";
 import { ChakraUi } from "../chakraUi/ChakraUi";
 import NavBar from "../container/navBar/NavBar";
-export const GlobalContext = createContext();
+export const GlobalContext = createContext({
+    postFavourites: 0,
+    getFavourites: () => { }
+});
 
 const GlobalDatas = ({ children }) => {
     const [favourites, setFavourites] = useState(0);
