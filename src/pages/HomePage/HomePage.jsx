@@ -71,7 +71,7 @@ function HomePage() {
         let newFavName = newFav.map((item) => item.name)
         setMyFavourite(newFavName);
         localStorage.setItem('favourite_items', JSON.stringify(newFav));
-        // getFavourites(newFav.length);
+        getFavourites(newFav.length);
     };
 
     return (
