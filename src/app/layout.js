@@ -17,7 +17,10 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <body className={inter.className}>
-        <GlobalDatas children={children} />
+        {/* <GlobalDatas children={children} /> */}
+        <GlobalDatas>
+          {children}
+        </GlobalDatas>
       </body>
     </html>
   );
