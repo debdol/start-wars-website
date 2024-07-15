@@ -4,7 +4,7 @@ import { Card, Box, CardBody, CardFooter, Flex, Image, Heading, Text, Button, Sp
 import { GlobalContext } from '../../globalDatas/globalDatas';
 
 function FavouritePage() {
-  const { getFavourites, postFavourites } = useContext(GlobalContext);
+  const { getFavourites } = useContext(GlobalContext);
   const [favItems, setFavItems] = useState([]);
   const getFavCarecter = () => {
     let myStore = JSON.parse(localStorage.getItem('favourite_items'));
@@ -19,7 +19,6 @@ function FavouritePage() {
     let newFav = favItems.filter((favItems) => favItems.name != item.name);
     localStorage.setItem('favourite_items', JSON.stringify(newFav));
     getFavourites(newFav.length);
-    // console.log("newFav.length:", GlobalContext, postFavourites);
     getFavCarecter();
   }
 

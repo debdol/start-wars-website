@@ -16,17 +16,9 @@ const GlobalDatas = ({ children }) => {
             const storedFavourites = JSON.parse(localStorage.getItem('favourite_items'));
             if (storedFavourites) {
                 setFavourites(storedFavourites.length);
-                console.log("storedFavourites:", storedFavourites.length);
             }
         }
     }, []);
-
-    useEffect(() => {
-        console.log('GlobalDatas context value:', {
-            postFavourites: favourites,
-            getFavourites: setFavourites
-        });
-    }, [favourites]);
 
     return (
         <GlobalContext.Provider value={{
