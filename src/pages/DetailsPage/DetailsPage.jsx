@@ -194,7 +194,7 @@ function DetailsPage() {
                     </Box>
                   )) :
                   <Flex justify="center" align="center" h="80vh" w="100%">
-                    <Spinner size="xl" color="Black" />
+                    <Spinner size="xl" color="red.500" />
                   </Flex>}
               </HStack>
             </Box>
@@ -202,7 +202,7 @@ function DetailsPage() {
         </Box >
         :
         <Flex justify="center" align="center" h="80vh" w="100%">
-          <Spinner size="xl" color="Black" />
+          <Spinner size="xl" color="red.500" />
         </Flex>
       }
     </>

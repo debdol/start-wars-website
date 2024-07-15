@@ -1,12 +1,14 @@
 "use client"
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import axios from 'axios'
 import { useRouter } from 'next/navigation';
 import { Image, Box, Text, Button, SimpleGrid, Flex, Spinner, useToast, Tooltip } from '@chakra-ui/react'
 import { ArrowBackIcon, ArrowForwardIcon } from '@chakra-ui/icons'
 import { FaHeart } from 'react-icons/fa'
+import { GlobalContext } from '../../globalDatas/globalDatas';
 
 function HomePage() {
+    const { getFavourites } = useContext(GlobalContext);
     const router = useRouter();
     const toast = useToast();
 
@@ -55,6 +57,7 @@ function HomePage() {
         if (data) {
             const favNames = data.map((item) => item.name);
             setMyFavourite(favNames);
+            getFavourites(data.length);
         }
     };
 
@@ -68,6 +71,7 @@ function HomePage() {
         let newFavName = newFav.map((item) => item.name)
         setMyFavourite(newFavName);
         localStorage.setItem('favourite_items', JSON.stringify(newFav));
+        getFavourites(newFav.length);
     };
 
     return (

@@ -1,11 +1,12 @@
 'use client'
-import React from 'react';
-import { Box, Flex, Link, Tooltip } from '@chakra-ui/react';
+import React, { useContext } from 'react';
+import { Box, Flex, Link, Tooltip, Text } from '@chakra-ui/react';
 import { FaHeart, FaHome } from "react-icons/fa";
 import { GiStarsStack } from "react-icons/gi";
+import { GlobalContext } from '../../globalDatas/globalDatas';
 
 function NavBar() {
-
+    const { postFavourites } = useContext(GlobalContext);
     return (
         <Box
             bg={'#000000'}
@@ -29,7 +30,7 @@ function NavBar() {
                     transition={"0.3s"}
                     cursor={"pointer"}
                 >
-                    <Link href={'/'} display={"flex"} alignItems={"center"} gap={"8px"} fontSize={"2rem"} fontFamily={"fantasy"}>
+                    <Link href={'/'} display={"flex"} alignItems={"center"} gap={"8px"} fontSize={"2rem"} fontFamily={"fantasy"} _hover={{ textDecoration: "none" }}>
                         <GiStarsStack fontSize={'3rem'} />
                         StarWars
                     </Link>
@@ -41,8 +42,36 @@ function NavBar() {
                         </Link>
                     </Tooltip>
                     <Tooltip label={'Favourites'}>
-                        <Link px={2} py={1} rounded={'md'} _hover={{ borderRadius: "none", color: "#FFC94A", transform: "scale(1.1)", transition: "0.3s" }} href={'/favourite'} color={"#ffffff"} transition={"0.3s"}>
-                            <FaHeart fontSize={'2rem'} />
+                        <Link px={2}
+                            py={1}
+                            // rounded={'md'}
+                            _hover={{ borderRadius: "none", color: "#FFC94A", transform: "scale(1.1)", transition: "0.3s" }}
+                            href={'/favourite'}
+                            color={"#ffffff"}
+                            transition={"0.3s"}
+                            display={"flex"}
+                            position={"relative"}
+                            border={1}
+                            borderColor={"red"}
+                        >
+                            <FaHeart fontSize={'1.5rem'} />
+                            {postFavourites > 0 ?
+                                <Text
+                                    bg="red"
+                                    borderRadius={"full"}
+                                    height={"15px"}
+                                    width={"15px"}
+                                    position={"absolute"}
+                                    zIndex={"2000px"}
+                                    right={0}
+                                    top={0}
+                                    fontSize={"10px"}
+                                    display={"flex"}
+                                    alignItems={"center"}
+                                    justifyContent={"center"}
+                                >
+                                    {postFavourites}
+                                </Text> : null}
                         </Link>
                     </Tooltip>
                 </Flex>

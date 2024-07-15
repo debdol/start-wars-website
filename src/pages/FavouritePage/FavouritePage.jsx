@@ -1,8 +1,10 @@
 'use client'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Card, Box, CardBody, CardFooter, Flex, Image, Stack, Heading, Text, Button, Spinner } from '@chakra-ui/react'
+import { GlobalContext } from '@/globalDatas/globalDatas';
 
 function FavouritePage() {
+  const { getFavourites } = useContext(GlobalContext);
   const [favItems, setFavItems] = useState([]);
   const getFavCarecter = () => {
     let myStore = JSON.parse(localStorage.getItem('favourite_items'));
@@ -15,6 +17,7 @@ function FavouritePage() {
   const removeFavourite = (item) => {
     let newFav = favItems.filter((favItems) => favItems.name != item.name);
     localStorage.setItem('favourite_items', JSON.stringify(newFav));
+    getFavourites(newFav.length);
     getFavCarecter();
   }
 
@@ -44,7 +47,7 @@ function FavouritePage() {
             boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px"
           >
             <Image
-              objectFit='cover'
+              objectFit='content'
               w={{ base: '100%', md: '50%' }}
               src={`https://starwars-visualguide.com/assets/img/characters/${item.url.match(/\d+/)[0]}.jpg`}
               alt='Carecter'
@@ -103,7 +106,7 @@ function FavouritePage() {
         ))
         :
         <Flex justify="center" align="center" h="80vh">
-          <Spinner size="xl" color="Black" />
+          <Spinner size="xl" color="red.500" />
         </Flex>
       }
     </Box>
