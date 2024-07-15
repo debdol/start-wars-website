@@ -6,7 +6,7 @@ import { GiStarsStack } from "react-icons/gi";
 import { GlobalContext } from '../../globalDatas/globalDatas';
 
 function NavBar() {
-    // const { postFavourites } = useContext(GlobalContext);
+    const { postFavourites } = useContext(GlobalContext);
     return (
         <Box
             bg={'#000000'}
@@ -52,7 +52,7 @@ function NavBar() {
                             position={"relative"}
                         >
                             <FaHeart fontSize={'1.5rem'} />
-                            {/* {postFavourites > 0 ?
+                            {postFavourites > 0 ?
                                 <Text
                                     bg="red"
                                     borderRadius={"full"}
@@ -69,7 +69,7 @@ function NavBar() {
                                     p={"10px"}
                                 >
                                     {postFavourites}
-                                </Text> : null} */}
+                                </Text> : null}
                         </Link>
                     </Tooltip>
                 </Flex>

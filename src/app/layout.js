@@ -19,13 +19,13 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <body className={inter.className}>
-        {/* <GlobalDatas>
+        <GlobalDatas>
           {children}
-        </GlobalDatas> */}
-        <ChakraUi>
+        </GlobalDatas>
+        {/* <ChakraUi>
           <NavBar />
           {children}
-        </ChakraUi>
+        </ChakraUi> */}
       </body>
     </html>
   );

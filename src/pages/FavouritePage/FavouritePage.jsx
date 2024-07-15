@@ -1,10 +1,10 @@
 'use client'
 import React, { useContext, useEffect, useState } from 'react'
 import { Card, Box, CardBody, CardFooter, Flex, Image, Heading, Text, Button, Spinner } from '@chakra-ui/react'
-import { GlobalContext } from '@/globalDatas/globalDatas';
+import { GlobalContext } from '../../globalDatas/globalDatas';
 
 function FavouritePage() {
-  // const { getFavourites, postFavourites } = useContext(GlobalContext);
+  const { getFavourites, postFavourites } = useContext(GlobalContext);
   const [favItems, setFavItems] = useState([]);
   const getFavCarecter = () => {
     let myStore = JSON.parse(localStorage.getItem('favourite_items'));
@@ -18,7 +18,7 @@ function FavouritePage() {
   const removeFavourite = (item) => {
     let newFav = favItems.filter((favItems) => favItems.name != item.name);
     localStorage.setItem('favourite_items', JSON.stringify(newFav));
-    // getFavourites(newFav.length);
+    getFavourites(newFav.length);
     // console.log("newFav.length:", GlobalContext, postFavourites);
     getFavCarecter();
   }

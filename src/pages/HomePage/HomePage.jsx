@@ -8,7 +8,7 @@ import { FaHeart } from 'react-icons/fa'
 import { GlobalContext } from '../../globalDatas/globalDatas';
 
 function HomePage() {
-    // const { getFavourites } = useContext(GlobalContext);
+    const { getFavourites } = useContext(GlobalContext);
     const router = useRouter();
     const toast = useToast();
 
@@ -57,7 +57,7 @@ function HomePage() {
         if (data) {
             const favNames = data.map((item) => item.name);
             setMyFavourite(favNames);
-            // getFavourites(data.length);
+            getFavourites(data.length);
         }
     };
 
