@@ -44,7 +44,6 @@ function NavBar() {
                     <Tooltip label={'Favourites'}>
                         <Link px={2}
                             py={1}
-                            // rounded={'md'}
                             _hover={{ borderRadius: "none", color: "#FFC94A", transform: "scale(1.1)", transition: "0.3s" }}
                             href={'/favourite'}
                             color={"#ffffff"}
@@ -69,6 +68,7 @@ function NavBar() {
                                     display={"flex"}
                                     alignItems={"center"}
                                     justifyContent={"center"}
+                                    p={"10px"}
                                 >
                                     {postFavourites}
                                 </Text> : null}

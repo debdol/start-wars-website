@@ -1,6 +1,6 @@
 'use client'
 import React, { useContext, useEffect, useState } from 'react'
-import { Card, Box, CardBody, CardFooter, Flex, Image, Stack, Heading, Text, Button, Spinner } from '@chakra-ui/react'
+import { Card, Box, CardBody, CardFooter, Flex, Image, Heading, Text, Button, Spinner } from '@chakra-ui/react'
 import { GlobalContext } from '@/globalDatas/globalDatas';
 
 function FavouritePage() {
@@ -9,7 +9,8 @@ function FavouritePage() {
   const getFavCarecter = () => {
     let myStore = JSON.parse(localStorage.getItem('favourite_items'));
     setFavItems(myStore);
-  }
+  };
+
   useEffect(() => {
     getFavCarecter();
   }, []);
