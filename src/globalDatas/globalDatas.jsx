@@ -19,7 +19,14 @@ const GlobalDatas = ({ children }) => {
                 console.log("storedFavourites:", storedFavourites.length);
             }
         }
-    }, [favourites])
+    }, []);
+
+    useEffect(() => {
+        console.log('GlobalDatas context value:', {
+            postFavourites: favourites,
+            getFavourites: setFavourites
+        });
+    }, [favourites]);
 
     return (
         <GlobalContext.Provider value={{
