@@ -19,7 +19,7 @@ const GlobalDatas = ({ children }) => {
                 console.log("storedFavourites:", storedFavourites.length);
             }
         }
-    }, [])
+    }, [favourites])
 
     return (
         <GlobalContext.Provider value={{
