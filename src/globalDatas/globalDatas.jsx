@@ -9,9 +9,7 @@ const GlobalDatas = ({ children }) => {
     const [favourites, setFavourites] = useState() || 0;
 
     useEffect(() => {
-        // if (typeof localStorage !== 'undefined') {
         setFavourites(JSON.parse(localStorage.getItem('favourite_items'))?.length)
-        // }
     }, [])
 
     return (
