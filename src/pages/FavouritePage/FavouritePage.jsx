@@ -57,7 +57,7 @@ function FavouritePage() {
               <Heading size='md' color="Black" textAlign="left" mb={"1rem"}>{item.name}</Heading>
               <Flex direction="row">
                 <Box mr={4}>
-                  <Text fontSize="lg" color="Black">Eye Color:</Text>
+                  <Text fontSize="lg" color="Black">Date Of Birth:</Text>
                 </Box>
                 <Text fontSize="lg" color="Black">{item.birth_year}</Text>
               </Flex>
